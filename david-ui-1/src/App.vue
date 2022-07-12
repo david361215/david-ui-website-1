@@ -4,7 +4,13 @@
   export default{
     name:'App',
     setup(){
-      const asideVisible = ref(false);
+      let asideVisible = ref( document.documentElement.clientWidth <=500 ?false:true)
+      window.onresize = ()=>{
+        document.documentElement.clientWidth > 500 ?
+          asideVisible.value = true:
+          asideVisible.value = false;
+        provide('asideVisible',asideVisible)
+      }
       provide('asideVisible',asideVisible)
     }
   }
