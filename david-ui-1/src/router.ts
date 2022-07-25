@@ -12,14 +12,14 @@ export const router = createRouter({
     history:history,
     routes:[
         {
-            path:'/',
+            path:"/",
             component:Home
         },{
-            path:'/doc',
+            path:"/doc",
             component:Doc,
             children:[
                 {
-                    path:'',
+                    path:"",
                     component:DocDemo 
                 },{
                     path:'switch',
