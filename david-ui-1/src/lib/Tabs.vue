@@ -15,7 +15,7 @@ import Tab from "./Tab.vue";
 import {
     computed,
     ref,
-    watchPostEffect
+    watchEffect
 } from "vue";
 
 export default {
@@ -29,7 +29,7 @@ export default {
         const indicator = ref<HTMLDivElement>(null)
         const container = ref<HTMLDivElement>(null)
 
-        watchPostEffect(()=>{
+        watchEffect(()=>{
             const { 
                 width 
             } = selectedItem.value.getBoundingClientRect()            
@@ -42,6 +42,8 @@ export default {
             } = selectedItem.value.getBoundingClientRect()
             const left = left2 - left1
             indicator.value.style.left = left + 'px'
+        },{
+            flush:'post'
         })
 
         const defaults = context.slots.default()
