@@ -4,42 +4,44 @@
   <div class="demo">
     <h2>常规用法</h2>
     <div class="demo-component">
-      <Switch1Demo />
+      <component :is="Switch1Demo"></component>
     </div>
     <div class="demo-actions">
       <Button>查看代码</Button>
     </div>
     <div class="demo-code">
-      <pre>&lt;Switch v-model:value="bool"  /&gt;</pre>
+      <pre>{{Switch1Demo.__sourceCode}}</pre>
     </div>
   </div>
   <div class="demo">
     <h2>支持 disabled </h2>
     <div class="demo-component">
-      <Switch2Demo />
+      <component :is="Switch2Demo"></component>  
     </div>
     <div class="demo-actions">
       <Button>查看代码</Button>
     </div>
     <div class="demo-code">
-      <pre>&lt;Switch v-model:value="bool" disabled /&gt;</pre>
+      <pre>{{Switch2Demo.__sourceCode}}</pre>
     </div>
   </div>
 </div>
 </template>
 
 <script lang="ts">
-import Switch from '../lib/Switch.vue'
 import Button from '../lib/Button.vue'
 import Switch1Demo from './Switch1.demo.vue'
 import Switch2Demo from './Switch2.demo.vue'
 
 export default {
   components: {
-    Switch,
-    Button,
-    Switch1Demo,
-    Switch2Demo
+    Button
+  },
+  setup() {
+    return {
+        Switch1Demo,
+        Switch2Demo
+    }
   }
 }
 </script>
