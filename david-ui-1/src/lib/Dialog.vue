@@ -54,12 +54,12 @@ export default {
         }
         const ok = () => {
             // props.ok?.() !== false 等价于 props.ok && props.ok() !== false
-            if(props.ok?.() !== false){
+            if( props.ok && props.ok() !== false){
                 close()
             }
         }
         const cancel = () => {
-            props.cancel?.()
+            props.cancel && props.cancel()
             close()
         }
         return {
