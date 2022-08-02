@@ -58,6 +58,7 @@
 </script>
 
 <style lang="scss" scoped>
+$aside-index : 10;
 .layout {
   display: flex;
   flex-direction: column;
@@ -100,6 +101,7 @@ aside {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: $aside-index;
 
   > h2 {
     margin-bottom: 4px;
