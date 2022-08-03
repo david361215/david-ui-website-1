@@ -47,7 +47,14 @@ export default {
         })
 
         const defaults = context.slots.default()
+        console.log('defaults');
+        console.log(defaults);
+        console.log('Tab');
+        console.log(Tab);
+        
         defaults.forEach((tag) => {
+            console.log('tag.type');
+            console.log(tag.type);
             if(tag.type !== Tab){
                 throw new Error('Tabs 子标签必须是 Tab')
             }
