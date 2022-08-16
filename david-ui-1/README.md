@@ -1,16 +1,18 @@
-# Vue 3 + TypeScript + Vite
+# Gulu UI for Vue 3
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## 运行步骤
 
-## Recommended IDE Setup
+1. 运行 yarn
+2. 运行 yarn dev
+3. 打开 http://127.0.0.1:3000
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+## 官网打包步骤
+1. 运行 yarn
+2. 运行 yarn build
+3. 得到的 dist 目录就是官网源代码
+4. 编辑并运行 sh deploy.sh 就可以上传到 Github 或码云等支持 Pages 功能的平台
 
-## Type Support For `.vue` Imports in TS
+## 库文件打包步骤
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's Take Over mode by following these steps:
-
-1. Run `Extensions: Show Built-in Extensions` from VS Code's command palette, look for `TypeScript and JavaScript Language Features`, then right click and select `Disable (Workspace)`. By default, Take Over mode will enable itself if the default TypeScript extension is disabled.
-2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
-
-You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
+1. 运行 rollup -c
+2. 得到的 dist/lib 目录就是编译后的库文件所在目录

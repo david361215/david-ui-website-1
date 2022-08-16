@@ -12,8 +12,8 @@
                         <slot name="content" />
                     </main>
                     <footer>
-                        <Button level="main" @click="ok">OK</Button>
-                        <Button @click="cancel">Cancel</Button>
+                        <Button level="main" @click="onClickOk">OK</Button>
+                        <Button @click="onClickCancel">Cancel</Button>
                     </footer>
                 </div>
             </div>
@@ -63,13 +63,13 @@ export const onClickOverlay = () => {
         close()
     }
 }
-export const ok = () => {
+export const onClickOk  = () => {
     // props.ok?.() !== false 等价于 props.ok && props.ok() !== false
     if( props.ok && props.ok() !== false){
         close()
     }
 }
-export const cancel = () => {
+export const onClickCancel = () => {
     props.cancel && props.cancel()
     close()
 }

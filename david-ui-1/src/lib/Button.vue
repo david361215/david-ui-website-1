@@ -5,7 +5,7 @@
   </button>
 </template> 
 
-<script setup="props" lang="ts">
+<script lang="ts" setup="props" >
 import { 
   computed 
 } from "vue";
