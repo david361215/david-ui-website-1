@@ -5,8 +5,18 @@
   </button>
 </template> 
 
-<script lang="ts">
-import { computed } from "vue";
+<script setup="props" lang="ts">
+import { 
+  computed 
+} from "vue";
+
+declare const props: {
+  theme?: 'button' | 'text' | 'link';
+  size?: 'normal' | 'big' | 'small';
+  level?: 'normal' | 'main' | 'danger';
+  disabled: boolean;
+  loading: boolean;
+}
 
 export default {
   props: {
@@ -31,19 +41,16 @@ export default {
       default: false
     }
   },
-  setup(props) {
-    const { theme, size, level } = props;
-    
-    const classes = computed(() => {
-      return {
-        [`gulu-theme-${theme}`]: theme,
-        [`gulu-size-${size}`]: size,
-        [`gulu-level-${level}`]: level,
-      };
-    });
-    return { classes };
-  },
-};
+}
+const { theme, size, level } = props;
+
+export const classes = computed(() => {
+  return {
+    [`gulu-theme-${theme}`]: theme,
+    [`gulu-size-${size}`]: size,
+    [`gulu-level-${level}`]: level,
+  };
+});
 </script>
 
 <style lang="scss">

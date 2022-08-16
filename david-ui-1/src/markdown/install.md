@@ -3,13 +3,13 @@
 打开终端运行下列命令：
 
 ```
-npm install king-ui
+npm install david-ui-1
 ```
 
 或
 
 ```
-yarn add king-ui
+yarn add david-ui-1
 ```
 
 下一节：[开始使用](#/doc/get-started)

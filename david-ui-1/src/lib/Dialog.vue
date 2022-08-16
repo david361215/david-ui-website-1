@@ -21,8 +21,18 @@
     </template>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup="props, context">
+import { 
+  SetupContext 
+} from 'vue';
 import Button from "./Button.vue"
+declare const props: {
+  visible: boolean;
+  closeOnClickOverlay: boolean; 
+  ok: () => boolean; 
+  cancel: () => void
+}
+declare const context: SetupContext
 export default {
     props: {
         visible: {
@@ -43,32 +53,25 @@ export default {
     components: {
         Button,
     },
-    setup(props,context){
-        const close = () => {
-            context.emit('update:visible', false)
-        }
-        const onClickOverlay = () => {            
-            if(props.closeOnClickOverlay){
-                close()
-            }
-        }
-        const ok = () => {
-            // props.ok?.() !== false 等价于 props.ok && props.ok() !== false
-            if( props.ok && props.ok() !== false){
-                close()
-            }
-        }
-        const cancel = () => {
-            props.cancel && props.cancel()
-            close()
-        }
-        return {
-            close,
-            onClickOverlay,
-            ok,
-            cancel
-        }
+}
+
+export const close = () => {
+    context.emit('update:visible', false)
+}
+export const onClickOverlay = () => {            
+    if(props.closeOnClickOverlay){
+        close()
     }
+}
+export const ok = () => {
+    // props.ok?.() !== false 等价于 props.ok && props.ok() !== false
+    if( props.ok && props.ok() !== false){
+        close()
+    }
+}
+export const cancel = () => {
+    props.cancel && props.cancel()
+    close()
 }
 </script>
 
