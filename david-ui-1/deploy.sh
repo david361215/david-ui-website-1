@@ -5,7 +5,7 @@ git init &&
 git add . &&
 git commit -m "update" &&
 git branch -M main &&
-git remote add origin git@github.com:david361215/david-ui-website.git
+git remote add origin git@gitee.com:david361215/david-ui-website.git
 git push -f -u origin main &&
 cd -
-echo https://david361215.github.io/david-ui-website/index.html
+echo https://david361215.gitee.io/david-ui-website/
