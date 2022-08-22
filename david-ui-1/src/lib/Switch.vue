@@ -6,17 +6,16 @@
 
 <script lang="ts" setup="props, context">
 import { 
-  ref, 
   SetupContext 
 } from "vue";
 declare const props: {value: boolean}
 declare const context: SetupContext
-export default {
+defineProps({
   props:{
     value:Boolean
-  },
-}
-export const toggle = () => {
+  }
+})
+const toggle = () => {
     context.emit("update:value", !props.value);
 };
 </script>

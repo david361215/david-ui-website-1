@@ -33,8 +33,7 @@ declare const props: {
   cancel: () => void
 }
 declare const context: SetupContext
-export default {
-    props: {
+defineProps({
         visible: {
             type: Boolean,
             default: false
@@ -49,27 +48,23 @@ export default {
         cancel: {
             type: Function
         }
-    },
-    components: {
-        Button,
-    },
-}
+})
 
-export const close = () => {
+const close = () => {
     context.emit('update:visible', false)
 }
-export const onClickOverlay = () => {            
+const onClickOverlay = () => {            
     if(props.closeOnClickOverlay){
         close()
     }
 }
-export const onClickOk  = () => {
+const onClickOk  = () => {
     // props.ok?.() !== false 等价于 props.ok && props.ok() !== false
     if( props.ok && props.ok() !== false){
         close()
     }
 }
-export const onClickCancel = () => {
+const onClickCancel = () => {
     props.cancel && props.cancel()
     close()
 }
