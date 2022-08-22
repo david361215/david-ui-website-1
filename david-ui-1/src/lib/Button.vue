@@ -18,8 +18,7 @@ declare const props: {
   loading: boolean;
 }
 
-export default {
-  props: {
+defineProps({
     theme: {
       type: String,
       default: "button"
@@ -40,11 +39,11 @@ export default {
       type: Boolean,
       default: false
     }
-  },
-}
+})
+
 const { theme, size, level } = props;
 
-export const classes = computed(() => {
+const classes = computed(() => {
   return {
     [`gulu-theme-${theme}`]: theme,
     [`gulu-size-${size}`]: size,
